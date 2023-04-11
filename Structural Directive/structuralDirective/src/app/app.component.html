@@ -1,0 +1,65 @@
+<div class="container">
+<button class="btn btn-success" (click)="onCreateBlock()">Create Block</button>
+<br><br>
+<div *ngIf="isValid">Block has been created and block name is my block</div>
+</div>
+<br><br>
+
+<div class="container">
+  <button class="btn btn-success" (click)="onCreateBlock()">Create Block</button>
+  <br><br>
+  <div *ngIf="isValid else elseblock">Block has been created and block name is my block</div>
+  <ng-template #elseblock>
+    <div>No block has been created</div>
+  </ng-template>
+  </div>
+
+  <div class="container">
+    <button class="btn btn-success" (click)="onCreateBlock()">Create Block</button>
+    <br><br>
+    <div *ngIf="isValid then thenblock else elseblock"></div>
+    <ng-template #thenblock>
+      Block has been created and block name is my block
+    </ng-template>
+    <ng-template #elseblock>
+      <div>No block has been created</div>
+    </ng-template>
+    </div>
+
+    <br><br>
+
+    <p>
+      ngFor
+    </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+    <table class="table">
+      <thead class="thead-primary">
+        <tr>
+        <td>Sr.No.</td>
+        <td>Product Id</td>
+        <td>Product Name</td>
+        <td>Product Image</td>
+        <td>Product Price</td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let myPro of products;index as i">
+        <!-- <tr *ngFor="let myPro of products;first as i"> -->
+         <!-- <tr *ngFor="let myPro of products;last as i"> -->
+        <!-- <tr *ngFor="let myPro of products;odd as i"> -->
+        <!-- <tr *ngFor="let myPro of products;even as i">  -->
+          <!-- {{i}} -->
+        <td>{{i+1}}</td>
+        <td>{{myPro.id}}</td>
+        <td>{{myPro.name}}</td>
+        <td><img src="{{myPro.img}}" width="70"></td>
+        <td>{{myPro.price}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
